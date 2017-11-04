@@ -276,29 +276,29 @@ Func algorithm_AllTroops() ;Attack Algorithm for all existing troops
 			ExitLoop ;Check remaining quantities
 		EndIf
 		For $i = $eBarb To $eBowl ; launch all remaining troops
-			If $g_iActivateQueen = 0 Or $g_iActivateKing = 0 Or $g_iActivateWarden = 0 Then CheckHeroesHealth()
+
 			; samm0d - disable 500ms delay if don't have that kind of troop
 			If LaunchTroop($i, $nbSides, 0, 1) = True Then
-				If $g_iActivateKQCondition = "Auto" Then CheckHeroesHealth()
+				If $g_iActivateQueen = 0 Or $g_iActivateKing = 0 Or $g_iActivateWarden = 0 Then CheckHeroesHealth()
 				If _Sleep($DELAYALGORITHM_ALLTROOPS5) Then Return
 			EndIf
 		Next
 		; samm0d
 		If $ichkEnableUseEventTroop = 1 Then
 			If LaunchTroop(51, $nbSides, 0, 1) = True Then
-				If $g_iActivateKQCondition = "Auto" Then CheckHeroesHealth()
+				If $g_iActivateQueen = 0 Or $g_iActivateKing = 0 Or $g_iActivateWarden = 0 Then CheckHeroesHealth()
 				If _Sleep($DELAYALGORITHM_ALLTROOPS5) Then Return
 			EndIf
 			If LaunchTroop(52, $nbSides, 0, 1) = True Then
-				If $g_iActivateKQCondition = "Auto" Then CheckHeroesHealth()
+				If $g_iActivateQueen = 0 Or $g_iActivateKing = 0 Or $g_iActivateWarden = 0 Then CheckHeroesHealth()
 				If _Sleep($DELAYALGORITHM_ALLTROOPS5) Then Return
 			EndIf
 			If LaunchTroop(61, $nbSides, 0, 1) = True Then
-				If $g_iActivateKQCondition = "Auto" Then CheckHeroesHealth()
+				If $g_iActivateQueen = 0 Or $g_iActivateKing = 0 Or $g_iActivateWarden = 0 Then CheckHeroesHealth()
 				If _Sleep($DELAYALGORITHM_ALLTROOPS5) Then Return
 			EndIf
 			If LaunchTroop(62, $nbSides, 0, 1) = True Then
-				If $g_iActivateKQCondition = "Auto" Then CheckHeroesHealth()
+				If $g_iActivateQueen = 0 Or $g_iActivateKing = 0 Or $g_iActivateWarden = 0 Then CheckHeroesHealth()
 				If _Sleep($DELAYALGORITHM_ALLTROOPS5) Then Return
 			EndIf
 		EndIf

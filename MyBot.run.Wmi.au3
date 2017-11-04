@@ -1,3 +1,9 @@
+#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#AutoIt3Wrapper_Compression=4
+#AutoIt3Wrapper_Change2CUI=y
+#AutoIt3Wrapper_Run_Au3Stripper=y
+#Au3Stripper_Parameters=/rsln /MI=3
+#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 ; #FUNCTION# ====================================================================================================================
 ; Name ..........: MBR Bot Wmi
 ; Description ...: This file contens the Sequence that runs all MBR Bot

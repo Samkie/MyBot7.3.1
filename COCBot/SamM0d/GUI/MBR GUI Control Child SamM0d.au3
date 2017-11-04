@@ -670,7 +670,10 @@ Func AttackNowLB()
 			_CaptureRegion2()
 			$bMeasured = CheckZoomOut2("VillageSearch", True, False)
 		Until $bMeasured = True Or $i >= 2
-		If $bMeasured = False Then Return ; exit func
+		If $bMeasured = False Then
+			SetLog("CheckZoomOut failed!", $COLOR_ERROR)
+			Return ; exit func
+		EndIf
 	EndIf
 
 	ResetTHsearch()
@@ -711,7 +714,10 @@ Func AttackNowDB()
 			_CaptureRegion2()
 			$bMeasured = CheckZoomOut2("VillageSearch", True, False)
 		Until $bMeasured = True Or $i >= 2
-		If $bMeasured = False Then Return ; exit func
+		If $bMeasured = False Then
+			SetLog("CheckZoomOut failed!", $COLOR_ERROR)
+			Return ; exit func
+		EndIf
 	EndIf
 
 	ResetTHsearch()
@@ -738,7 +744,7 @@ Func CheckZoomOut2($sSource = "CheckZoomOut", $bCheckOnly = False, $bForecCaptur
 	If IsArray($aVillageResult) = 0 Or $aVillageResult[0] = "" Then
 		; not zoomed out, Return
 		If $bCheckOnly = False Then
-			SetLog("Not Zoomed Out!", $COLOR_ERROR)
+			SetLog("Not Zoomed Out! try to zoom out...", $COLOR_ERROR)
 			ZoomOut()
 		EndIf
 		Return False

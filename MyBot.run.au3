@@ -793,6 +793,7 @@ Func runBot() ;Bot that runs everything in order
 
 		chkShieldStatus()
 		If $g_bRestart = True Then ContinueLoop
+
 		checkObstacles() ; trap common error messages also check for reconnecting animation
 		If $g_bRestart = True Then ContinueLoop
 
