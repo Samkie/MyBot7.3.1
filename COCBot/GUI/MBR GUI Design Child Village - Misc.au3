@@ -239,7 +239,7 @@ EndFunc
 Func CreateMiscBuilderBaseSubTab()
     Local $x = 15, $y = 45
 
-	GUICtrlCreateGroup("Builders Base Stats", $x - 10, $y - 20, 442, 50)
+	GUICtrlCreateGroup(GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "Group_05", "Builders Base Stats"), $x - 10, $y - 20, 442, 50)
 
 		_GUICtrlCreatePic($g_sIcnBldGold, $x, $y - 2, 24, 24)
 		$g_alblBldBaseStats[$eLootGold] = GUICtrlCreateLabel("---", $x + 35, $y + 2, 100, -1)
@@ -260,8 +260,8 @@ Func CreateMiscBuilderBaseSubTab()
    		GUICtrlCreateIcon($g_sLibIconPath, $eIcnGoldMineL5, $x + 7, $y, 24, 24)
 		GUICtrlCreateIcon($g_sLibIconPath, $eIcnElixirCollectorL5, $x + 32, $y, 24, 24)
 		GUICtrlCreateIcon($g_sLibIconPath, $eIcnGemMine, $x + 57, $y, 24, 24)
-		$g_hChkCollectBuilderBase = GUICtrlCreateCheckbox(GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "ChkCollectBuilderBase", "Collect Ressources"), $x + 100, $y + 4, -1, -1)
-			_GUICtrlSetTip(-1, GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "ChkCollectBuildersBase_Info_01", "Check this to collect Ressources on the Builder Base"))
+		$g_hChkCollectBuilderBase = GUICtrlCreateCheckbox(GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "ChkCollectBuilderBase", "Collect Resources"), $x + 100, $y + 4, -1, -1)
+			_GUICtrlSetTip(-1, GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "ChkCollectBuildersBase_Info_01", "Check this to collect Resources on the Builder Base"))
 
    $y += 32
 		GUICtrlCreateIcon($g_sLibIconPath, $eIcnClockTower, $x + 32, $y, 24, 24)
@@ -272,32 +272,33 @@ Func CreateMiscBuilderBaseSubTab()
 			_GUICtrlSetTip(-1, GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "ChkCTBoostBlderBz_Info_01", "boost only when the builder is busy"))
 			GUICtrlSetState (-1, $GUI_DISABLE)
    GUICtrlCreateGroup("", -99, -99, 1, 1)
-   
+
 ; New group
 	Local $x = 13, $y = 190
 
-	GUICtrlCreateGroup("Suggested Upgrades ", $x - 10, $y - 20, 442, 233)
+	GUICtrlCreateGroup(GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "Group_06", "Suggested Upgrades"), $x - 10, $y - 20, 442, 233)
 
 		_GUICtrlCreatePic($g_sIcnMBisland, $x , $y , 64, 64)
-		$g_chkBBSuggestedUpgrades = GUICtrlCreateCheckbox("Suggested Upgrades", $x + 70, $y + 25, -1, -1)
+		$g_chkBBSuggestedUpgrades = GUICtrlCreateCheckbox(GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "ChkBBSuggestedUpgrades", "Suggested Upgrades"), $x + 70, $y + 25, -1, -1)
 			;GUICtrlSetState(-1, $GUI_UNCHECKED)
+			_GUICtrlSetTip(-1, GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "ChkBBSuggestedUpgrades_Info_01", "Auto update base on builder suggestion list."))
 			GUICtrlSetOnEvent(-1, "chkActivateBBSuggestedUpgrades")
-		$g_chkBBSuggestedUpgradesIgnoreGold = GUICtrlCreateCheckbox("Ignore Gold values", $x + 200, $y + 15, -1, -1)
+		$g_chkBBSuggestedUpgradesIgnoreGold = GUICtrlCreateCheckbox(GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "ChkBBSuggestedUpgradesIgnoreGold", "Ignore Gold values"), $x + 200, $y + 15, -1, -1)
 			;GUICtrlSetState(-1, BitOR($GUI_UNCHECKED, $GUI_DISABLE))
 			GUICtrlSetOnEvent(-1, "chkActivateBBSuggestedUpgradesGold")
-		$g_chkBBSuggestedUpgradesIgnoreElixir = GUICtrlCreateCheckbox("Ignore Elixir values", $x + 200, $y + 40, -1, -1)
+		$g_chkBBSuggestedUpgradesIgnoreElixir = GUICtrlCreateCheckbox(GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "ChkBBSuggestedUpgradesIgnoreElixir", "Ignore Elixir values"), $x + 200, $y + 40, -1, -1)
 			;GUICtrlSetState(-1, BitOR($GUI_UNCHECKED, $GUI_DISABLE))
 			GUICtrlSetOnEvent(-1, "chkActivateBBSuggestedUpgradesElixir")
-		$g_chkBBSuggestedUpgradesIgnoreHall = GUICtrlCreateCheckbox("Ignore Builder Hall", $x + 320, $y + 28, -1, -1)
+		$g_chkBBSuggestedUpgradesIgnoreHall = GUICtrlCreateCheckbox(GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "ChkBBSuggestedUpgradesIgnoreHall", "Ignore Builder Hall"), $x + 320, $y + 28, -1, -1)
 			;GUICtrlSetState(-1, BitOR($GUI_UNCHECKED, $GUI_DISABLE))
 			GUICtrlSetOnEvent(-1, "chkActivateBBSuggestedUpgradesGold")
 
 	Local $x = 13, $y = 200
-		$g_chkPlacingNewBuildings = GUICtrlCreateCheckbox("Build 'New' tagged buildings", $x + 70, $y + 60, -1, -1)
+		$g_chkPlacingNewBuildings = GUICtrlCreateCheckbox(GetTranslatedFileIni("MBR GUI Design Child Village - Misc", "ChkPlacingNewBuildings", "Build 'New' tagged buildings"), $x + 70, $y + 60, -1, -1)
 			GUICtrlSetOnEvent(-1, "chkPlacingNewBuildings")
 
 	GUICtrlCreateGroup("", -99, -99, 1, 1)
-	
+
 EndFunc
 
 

@@ -309,9 +309,11 @@ Func NewBuildings($aResult)
 		; If exist Clocks
 		Local $ClocksCoordinates = QuickMIS("CX", $directoryClock, 20, 250, 775, 530, $Screencap, $Debug)
 		If UBound($ClocksCoordinates) > 0 Then
-			Setlog("[Clocks]: " & UBound($ClocksCoordinates), $COLOR_DEBUG)
+			If $g_bDebugSetlog then Setlog("[Clocks]: " & UBound($ClocksCoordinates), $COLOR_DEBUG)
 			For $i = 0 To UBound($ClocksCoordinates) - 1
 				; Prepare the coordinates
+				If $g_bDebugSetlog then Setlog("$ClocksCoordinates: " & $ClocksCoordinates[$i])
+
 				Local $Coordinates = StringSplit($ClocksCoordinates[$i], ",", 2)
 				; Just in Cause
 				If UBound($Coordinates) <> 2 Then
@@ -322,7 +324,8 @@ Func NewBuildings($aResult)
 				Local $x = ($Coordinates[0] + 20), $y = ($Coordinates[1] + 250) - 135, $x1 = ($Coordinates[0] + 20) + 220, $y1 = ($Coordinates[1] + 250) + 52
 				; Lets see if exist resources
 				If $g_bDebugSetlog then Setlog("[x]: " & $x & " [y]: " & $y & " [x1]: " & $x1 & " [y1]: " & $y1, $COLOR_DEBUG)
-				If QuickMIS("BC1", $directoryZero, $x, $y, $x1, $y1, $Screencap, $Debug) Then
+
+				;If QuickMIS("BC1", $directoryZero, $x, $y, $x1, $y1, $Screencap, $Debug) Then
 					; Lets se if exist or NOT the Yellow Arrow, If Doesnt exist the [i] icon than exist the Yellow arrow , DONE
 					If Not QuickMIS("BC1", $directoryInfoIcon, $x, $y, $x1, $y1, $Screencap, $Debug) Then
 						Click($x + 100, $y + 50, 1)
@@ -356,10 +359,10 @@ Func NewBuildings($aResult)
 						EndIf
 						ContinueLoop
 					EndIf
-				Else
-					If $g_bDebugSetlog then Setlog("Slot without enough resources![2]", $COLOR_DEBUG)
-					If $i = UBound($ClocksCoordinates) - 1 Then Click(820, 38, 1)
-				EndIf
+				;Else
+				;	If $g_bDebugSetlog then Setlog("Slot without enough resources![2]", $COLOR_DEBUG)
+				;	If $i = UBound($ClocksCoordinates) - 1 Then Click(820, 38, 1)
+				;EndIf
 			Next
 		Else
 			Setlog("Slot without enough resources![3]", $COLOR_INFO)
